@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "description": "The Backend for my Portfolio Website where the server will redirect traffic to web3 if metamask extension is installed and if not it will redirect traffic to MERN website",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.github.com/samcms1234/Blockchain-Portfolio-Backend"
+  },
+  "keywords": [
+    "Web3",
+    "Solidity",
+    "Ethereum",
+    "MongoDB",
+    "Express.js",
+    "Node.js",
+    "React.js",
+    "ethers.js",
+    "web3.js"
+  ],
+  "author": "Saumya Srivastava",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.12.0",
+    "express": "^4.19.2",
+    "web3": "^4.8.0"
+  }
+}
