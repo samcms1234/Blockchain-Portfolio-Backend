@@ -26,11 +26,12 @@ async function main() {
 
     fse.copySync("./artifacts/contracts/Portfolio.sol/", "../ABI");
     fs.writeFileSync(
-      "../ABI/contracts-config.js",
-      `
-      export const contractAddress = "${portfolio.target}"
-      export const ownerAddress = "${portfolio.runner.address}"
-      export const networkDeployedTo = "${portfolio.runner.provider._networkName}"
+      "../ABI/contracts-config.json",
+      `{
+      "contractAddress" : "${portfolio.target}",
+      "ownerAddress" : "${portfolio.runner.address}",
+      "networkDeployedTo" : "${portfolio.runner.provider._networkName}"
+      }
     `
     );
   }
