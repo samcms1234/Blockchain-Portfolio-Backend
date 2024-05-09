@@ -8,6 +8,7 @@ const { abi } = require("./ABI/Portfolio.json");
 const { contractAddress, ownerAddress, networkDeployedTo } = require('./ABI/contracts-config.json')
 
 console.log(process.env.ALCHEMY_RPC_MUMBAI);
+const ALCHEMY_RPC_MUMBAI = process.env.ALCHEMY_RPC_MUMBAI;
 
 const web3 = new Web3("http://localhost:8545/");
 
@@ -142,6 +143,39 @@ async function getProject( index ) {
     }
 }
 
+async function getAllProjects() {
+    try {
+        const projects = await portfolio.methods.allProjects().call();
+        console.log(projects);
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+async function getAllEductationDetails() {
+    try {
+        const educations = await portfolio.methods.allEductationDetails().call();
+        console.log(educations);
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+async function getAllExperienceDetails() {
+    try {
+        const experiences = await portfolio.methods.allExperienceDetails().call();
+        console.log(experiences);
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+
+
+ 
 
 
 
