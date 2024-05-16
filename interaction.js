@@ -77,16 +77,6 @@ async function changeResume( resumeLink ) {
     }
 }
 
-async function addEducation( resumeLink ) {
-    try {
-    await portfolio.methods.changeResume(resumeLink).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 });
-    fetchResumeCid();
-    }
-    catch(error) {
-        console.log(error);
-    }
-}
-
 async function addEduction( collegeName, startingYear, endYear, degree, skillsAcquired, description ) {
     try {
         await portfolio.methods.addEduction(collegeName, startingYear, endYear, degree, skillsAcquired, description).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 });
@@ -143,40 +133,70 @@ async function getProject( index ) {
     }
 }
 
+async function addExperience(companyName, position, startingTime, endTime, knowledgeAcquired, description) {
+    try {
+        await portfolio.methods.addExperience(companyName, position, startingTime, endTime, knowledgeAcquired, description).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 }); 
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+async function editExperience( index, companyName, position, startingTime, endTime, knowledgeAcquired, description ) {
+    try {
+        await portfolio.methods.editExperience(index, companyName, position, startingTime, endTime, knowledgeAcquired, description).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 });
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+async function getExperience( index ) {
+    try {
+        const project = await portfolio.methods.getExperience(index).call();
+        console.log("Project is", project);
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+async function collectFunds( amount ) {
+    try {
+        await portfolio.methods.collectFunds(amount).call();
+        console.log("Project is", project);
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
 async function getAllProjects() {
     try {
         const projects = await portfolio.methods.allProjects().call();
-        console.log(projects);
+        console.log(projects)
     }
     catch(error) {
-        console.log(error);
+        console.log(error)
     }
 }
 
-async function getAllEductationDetails() {
-    try {
-        const educations = await portfolio.methods.allEductationDetails().call();
-        console.log(educations);
-    }
-    catch(error) {
-        console.log(error);
-    }
-}
 
-async function getAllExperienceDetails() {
+async function getAllExperiences() {
     try {
         const experiences = await portfolio.methods.allExperienceDetails().call();
-        console.log(experiences);
+        console.log(experiences)
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+async function getAllEducations() {
+    try {
+        const educations = await portfolio.methods.allEductationDetails().call()
+        console.log(educations)
     }
     catch(error) {
         console.log(error);
     }
 }
-
-
-
- 
-
-
-
-
