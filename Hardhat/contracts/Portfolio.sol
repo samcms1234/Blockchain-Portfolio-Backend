@@ -45,8 +45,8 @@ contract Portfolio {
     string public profile="over 6 months of practical experience with a good knowledge in blockchain development.i help web3 community by contributing in the web3 space.";
     string public resumeLink="QmP3fX1H8XSV7xnUuXmwAaLaizpbw8NR7uJ1bHva1uZnBh";
 
-    function changeLink(string memory _newLink) _onlyManager external {
-        imageLink = _newLink;
+    function changeLink(string memory _cid) _onlyManager external {
+        imageLink = _cid;
     }
 
     function changeProfile(string memory _newProfile) _onlyManager external {
