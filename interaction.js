@@ -17,7 +17,7 @@ const portfolio = new web3.eth.Contract(abi, contractAddress);
 async function fetchResumeCid() {
     try {
     const resumeCid = await portfolio.methods.resumeLink().call();
-    console.log('Result of myFunction:', resumeCid);
+    console.log('The Resume cid:', resumeCid);
     return resumeCid;
     }
     catch(error) {
@@ -28,7 +28,7 @@ async function fetchResumeCid() {
 async function fetchImageCid() {
     try {
     const imageCid = await portfolio.methods.imageLink().call();
-    console.log('Result of myFunction:', imageCid);
+    console.log('The image cid:', imageCid);
     return imageCid;
     }
     catch(error) {
@@ -39,7 +39,7 @@ async function fetchImageCid() {
 async function fetchProfile() {
     try {
     const profileCid = await portfolio.methods.profile().call();
-    console.log('Result of myFunction:', profileCid);
+    console.log('The profile description:', profileCid);
     return profileCid;
     }
     catch(error) {
@@ -200,3 +200,13 @@ async function getAllEducations() {
         console.log(error);
     }
 }
+
+module.exports = {
+    fetchResumeCid,
+    fetchImageCid,
+    fetchProfile,
+    changeProfile,
+    changeResume,
+    addEduction,
+    changeLink
+};
