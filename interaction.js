@@ -99,6 +99,8 @@ async function getEducation( index ) {
     try {
         const education = await portfolio.methods.getEducation(index).call();
         console.log("Education is", education);
+
+        return education;
     }
     catch(error) {
         console.log(error);
@@ -127,6 +129,8 @@ async function getProject( index ) {
     try {
         const project = await portfolio.methods.getProject(index).call();
         console.log("Project is", project);
+
+        return project;
     }
     catch(error) {
         console.log(error);
@@ -206,7 +210,14 @@ module.exports = {
     fetchImageCid,
     fetchProfile,
     changeProfile,
+    editProject,
     changeResume,
+    addProject,
     addEduction,
+    getProject,
+    editEducation,
+    getEducation,
     changeLink
 };
+
+getAllProjects();
