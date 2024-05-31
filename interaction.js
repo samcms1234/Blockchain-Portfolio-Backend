@@ -157,8 +157,10 @@ async function editExperience( index, companyName, position, startingTime, endTi
 
 async function getExperience( index ) {
     try {
-        const project = await portfolio.methods.getExperience(index).call();
-        console.log("Project is", project);
+        const experience = await portfolio.methods.getExperience(index).call();
+        console.log("Experience is", experience);
+
+        return experience;
     }
     catch(error) {
         console.log(error);
@@ -179,6 +181,8 @@ async function getAllProjects() {
     try {
         const projects = await portfolio.methods.allProjects().call();
         console.log(projects)
+
+        return projects;
     }
     catch(error) {
         console.log(error)
@@ -216,7 +220,13 @@ module.exports = {
     addEduction,
     getProject,
     editEducation,
+    addExperience,
+    editExperience,
+    getExperience,
     getEducation,
+    getAllProjects,
+    getAllExperiences,
+    getAllEducations,
     changeLink
 };
 
