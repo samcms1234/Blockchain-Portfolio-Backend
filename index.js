@@ -217,6 +217,76 @@ app.get('/getproject/:index', async (req, res) => {
     }
 })
 
+app.post('/addexperience', async (req, res) => {
+    const { companyName, position, startingTime, endTime, knowledgeAcquired, description } = req.body;
+    
+    try {
+
+        console.log("Started Adding Experience")
+        await interaction.addExperience(companyName, position, startingTime, endTime, knowledgeAcquired, description);
+
+        console.log("Experience successfully added");
+        res.send({status: "Experience Successfully Added"})
+    }
+    catch(error) {
+        console.log("Unable to proceed");
+
+        res.send({status: "Unable to add"});
+    }
+})
+
+
+app.patch('/editexperience', async (req, res) => {
+    const { index, companyName, position, startingTime, endTime, knowledgeAcquired, description } = req.body;
+    
+    try {
+
+        console.log("Started Editing Experience")
+        await interaction.editExperience(index, companyName, position, startingTime, endTime, knowledgeAcquired, description);
+
+        console.log("Experience successfully edited");
+        res.send({status: "Experience Successfully Edited"})
+    }
+    catch(error) {
+        console.log("Unable to proceed");
+
+        res.send({status: "Unable to edit"});
+    }
+})
+
+app.get('/getexperience/:index', async (req, res) => {
+    const index = req.params.index;
+
+    try {
+        console.log("fetching the Experience");
+
+        const experience = await interaction.getExperience(index);
+
+        res.json({companyName: `${experience.companyName}`, position: `${experience.position}`, startingTime: `${experience.startingTime}`, endTime: `${experience.endTime}`, knowledgeAcquired: experience.knowledgeAcquired, description: `${experience.description}`})
+    }
+    catch(error) {
+        console.log("Error in fetching");
+
+        res.send({status: "Unable to fetch"})
+    }
+})
+
+// app.get('/getallprojects', async (req, res) => {
+
+//     try {
+//         console.log("fetching the Projects");
+
+//         const projects = await interaction.getAllProjects();
+
+//         res.json(projects)
+//     }
+//     catch(error) {
+//         console.log("Error in fetching");
+
+//         res.send({status: "Unable to fetch"})
+//     }
+// })
+
 
 
 app.listen(PORT, () => console.log(`The app is listening at ${PORT}`))
