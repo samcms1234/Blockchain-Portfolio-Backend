@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
@@ -7,6 +8,8 @@ const bodyParser = require('body-parser');
 const interaction = require('./interaction')
 
 const PORT = process.env.PORT;
+
+app.use(cors());
 
 app.get('/resume', async (req, res) => {
     try {
@@ -23,7 +26,7 @@ app.get('/resume', async (req, res) => {
 app.get('/imagecid', async (req, res) => {
     try {
         res.send({
-            'resumeCid':
+            'imagecid':
             `${await interaction.fetchImageCid()}`
         })
     }
@@ -271,21 +274,88 @@ app.get('/getexperience/:index', async (req, res) => {
     }
 })
 
-// app.get('/getallprojects', async (req, res) => {
+app.get('/getallprojects', async (req, res) => {
 
-//     try {
-//         console.log("fetching the Projects");
+    try {
+        console.log("fetching the Projects");
 
-//         const projects = await interaction.getAllProjects();
+        const projects = await interaction.getAllProjects();
+        
+        const projectsData = projects.map(project => {
+            return {
+                index: project.index.toString(),
+                title: project.title,
+                githubLink: project.githubLink,
+                description: project.description,
+                skillsAcquired: project.skillsAcquired,
+                images: project.images
+            };
+        });
 
-//         res.json(projects)
-//     }
-//     catch(error) {
-//         console.log("Error in fetching");
+        res.json({projects: projectsData})
+    }
+    catch(error) {
+        console.log("Error in fetching");
 
-//         res.send({status: "Unable to fetch"})
-//     }
-// })
+        res.status(500).send({status: error.message})
+    }
+})
+
+app.get('/getallexperience', async (req, res) => {
+
+    try {
+        console.log("fetching the Experience");
+
+        const experiences = await interaction.getAllExperiences();
+        
+        const experiencesData= experiences.map(experience => {
+            return {
+                index: experience.index.toString(),
+                companyName: experience.companyName,
+                position: experience.position,
+                startingTime: experience.startingTime,
+                endTime: experience.endTime,
+                knowledgeAcquired: experience.knowledgeAcquired,
+                description: experience.description
+            };
+        });
+
+        res.json({experience: experiencesData})
+    }
+    catch(error) {
+        console.log("Error in fetching");
+
+        res.status(500).send({status: error.message})
+    }
+})
+
+app.get('/getalleducation', async (req, res) => {
+
+    try {
+        console.log("fetching the Projects");
+
+        const education = await interaction.getAllEducations();
+        
+        const educationData= education.map(education => {
+            return {
+                index: education.index.toString(),
+                collegeName: education.collegeName,
+                startingYear: education.startingYear.toString(),
+                endYear: education.endYear.toString(),
+                degree: education.degree,
+                skillsAcquired: education.skillsAcquired,
+                description: education.description
+            };
+        });
+
+        res.json({education: educationData})
+    }
+    catch(error) {
+        console.log("Error in fetching");
+
+        res.status(500).send({status: error.message})
+    }
+})
 
 
 
