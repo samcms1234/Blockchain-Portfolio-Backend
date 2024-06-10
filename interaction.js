@@ -194,6 +194,8 @@ async function getAllExperiences() {
     try {
         const experiences = await portfolio.methods.allExperienceDetails().call();
         console.log(experiences)
+
+        return experiences;
     } catch(error) {
         console.log(error);
     }
@@ -203,6 +205,8 @@ async function getAllEducations() {
     try {
         const educations = await portfolio.methods.allEductationDetails().call()
         console.log(educations)
+
+        return educations;
     }
     catch(error) {
         console.log(error);
@@ -229,5 +233,3 @@ module.exports = {
     getAllEducations,
     changeLink
 };
-
-getAllProjects();
