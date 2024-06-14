@@ -156,7 +156,14 @@ app.get('/geteducation/:index', async (req, res) => {
 
         const Education = await interaction.getEducation(index);
 
-        res.json({collegeName: `${Education.collegeName}`, startingYear: `${Education.startingYear}`, endYear: `${Education.endYear}`, degree: `${Education.degree}`, skillsAcquired: Education.skillsAcquired, description: `${Education.description}`})
+        res.json({
+            collegeName: `${Education.collegeName}`,
+            startingYear: `${Education.startingYear}`,
+            endYear: `${Education.endYear}`,
+            degree: `${Education.degree}`,
+            skillsAcquired: Education.skillsAcquired,
+            description: `${Education.description}`
+        })
     }
     catch(error) {
         console.log("Error in fetching");
@@ -211,7 +218,13 @@ app.get('/getproject/:index', async (req, res) => {
         const project = await interaction.getProject(index);
         console.log(project);
 
-        res.json({title: `${project.title}`, githubLink: `${project.githubLink}`, description: `${project.description}`, skillsAcquired: `${project.skillsAcquired}`, images: `${project.images}`})
+        res.json({
+            title: `${project.title}`,
+            githubLink: `${project.githubLink}`,
+            description: `${project.description}`,
+            skillsAcquired: `${project.skillsAcquired}`,
+            images: `${project.images}`
+        })
     }
     catch(error) {
         console.log("Error in fetching");
@@ -265,7 +278,14 @@ app.get('/getexperience/:index', async (req, res) => {
 
         const experience = await interaction.getExperience(index);
 
-        res.json({companyName: `${experience.companyName}`, position: `${experience.position}`, startingTime: `${experience.startingTime}`, endTime: `${experience.endTime}`, knowledgeAcquired: experience.knowledgeAcquired, description: `${experience.description}`})
+        res.json({
+            companyName: `${experience.companyName}`,
+            position: `${experience.position}`,
+            startingTime: `${experience.startingTime}`,
+            endTime: `${experience.endTime}`,
+            knowledgeAcquired: experience.knowledgeAcquired,
+            description: `${experience.description}`
+        })
     }
     catch(error) {
         console.log("Error in fetching");

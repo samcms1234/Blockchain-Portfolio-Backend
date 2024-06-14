@@ -41,7 +41,7 @@ contract Portfolio {
     Project[] public projects;
     Education[] public educations;
 
-    string public imageLink="QmbeVr2qD9AJbDSRc9DbXidVYLUo5wyvMnfSnN7mWAQ5df";
+    string public imageLink="Qmf5BoMEhp6WYeUHD1LqMtE59GXy8tE2eb4NbQN3b5fX9J";
     string public profile="over 6 months of practical experience with a good knowledge in blockchain development.i help web3 community by contributing in the web3 space.";
     string public resumeLink="QmP3fX1H8XSV7xnUuXmwAaLaizpbw8NR7uJ1bHva1uZnBh";
 
