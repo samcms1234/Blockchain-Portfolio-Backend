@@ -107,18 +107,18 @@ async function getEducation( index ) {
     }
 }
 
-async function addProject(title, githubLink, description, skillsAcquired, images) {
+async function addProject(title, githubLink, description, skillsAcquired, liveLink, images) {
     try {
-        await portfolio.methods.addProject(title, githubLink, description, skillsAcquired, images).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 }); 
+        await portfolio.methods.addProject(title, githubLink, description, skillsAcquired, liveLink, images).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 }); 
     }
     catch(error) {
         console.log(error);
     }
 }
 
-async function editProject( index, title, githubLink, description, skillsAcquired, images ) {
+async function editProject( index, title, githubLink, description, skillsAcquired, liveLink, images ) {
     try {
-        await portfolio.methods.editProject(index, title, githubLink, description, skillsAcquired, images).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 });
+        await portfolio.methods.editProject(index, title, githubLink, description, skillsAcquired, liveLink, images).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 });
     }
     catch(error) {
         console.log(error);

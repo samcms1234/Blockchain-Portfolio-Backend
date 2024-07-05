@@ -30,6 +30,7 @@ contract Portfolio {
         string githubLink;
         string description;
         string skillsAcquired;
+        string liveLink;
         string[] images;
     }
 
@@ -102,9 +103,10 @@ contract Portfolio {
         string memory githubLink,
         string memory description,
         string memory skillsAcquired,
+        string memory linkLink,
         string[] memory images
     ) _onlyManager external {
-        projects.push(Project(noOfProjects,title,githubLink,description,skillsAcquired, images));
+        projects.push(Project(noOfProjects,title,githubLink,description,skillsAcquired, linkLink, images));
         noOfProjects++;
     }
 
@@ -118,9 +120,10 @@ contract Portfolio {
         string memory githubLink,
         string memory description,
         string memory skillsAcquired,
+        string memory liveLink,
         string[] memory images
     ) _onlyManager external {
-        Project memory project = Project(_i, title, githubLink, description, skillsAcquired, images);
+        Project memory project = Project(_i, title, githubLink, description, skillsAcquired, liveLink, images);
         projects[_i] = project;
     }
 
