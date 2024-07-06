@@ -4,6 +4,7 @@
   "description": "The Backend for my Portfolio Website where the server will redirect traffic to web3 if metamask extension is installed and if not it will redirect traffic to MERN website",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "node test.js",
     "dev": "nodemon index.js"
   },
