@@ -7,8 +7,8 @@ contract Portfolio {
     struct Education {
         uint index;
         string collegeName;
-        uint startingYear;
-        uint endYear;
+        string startingYear;
+        string endYear;
         string degree;
         string[] skillsAcquired;
         string description;
@@ -71,8 +71,8 @@ contract Portfolio {
 
     function addEduction(
         string memory collegeName,
-        uint startingYear,
-        uint endYear,
+        string memory startingYear,
+        string memory endYear,
         string memory degree,
         string[] memory skillsAcquired,
         string memory description
@@ -88,8 +88,8 @@ contract Portfolio {
     function editEducation(
         uint _i,
         string memory collegeName,
-        uint startingYear,
-        uint endYear,
+        string memory startingYear,
+        string memory endYear,
         string memory degree,
         string[] memory skillsAcquired,
         string memory description
