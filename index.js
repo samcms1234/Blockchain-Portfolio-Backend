@@ -173,12 +173,12 @@ app.get('/geteducation/:index', async (req, res) => {
 })
 
 app.post('/addproject', async (req, res) => {
-    const { title, githubLink, description, skillsAcquired, images } = req.body;
+    const { title, githubLink, description, skillsAcquired, liveLink, images } = req.body;
     
     try {
 
         console.log("Started Adding Project")
-        await interaction.addProject(title, githubLink, description, skillsAcquired, images);
+        await interaction.addProject(title, githubLink, description, skillsAcquired, liveLink, images);
 
         console.log("Project successfully added");
         res.send({status: "Project Successfully Added"})
@@ -192,12 +192,12 @@ app.post('/addproject', async (req, res) => {
 
 
 app.patch('/editproject', async (req, res) => {
-    const { index, title, githubLink, description, skillsAcquired, images } = req.body;
+    const { index, title, githubLink, description, skillsAcquired, liveLink, images } = req.body;
     
     try {
 
         console.log("Started Editing Project")
-        await interaction.editProject(index, title, githubLink, description, skillsAcquired, images);
+        await interaction.editProject(index, title, githubLink, description, skillsAcquired, liveLink, images);
 
         console.log("Project successfully edited");
         res.send({status: "Project Successfully Edited"})
@@ -223,6 +223,7 @@ app.get('/getproject/:index', async (req, res) => {
             githubLink: `${project.githubLink}`,
             description: `${project.description}`,
             skillsAcquired: `${project.skillsAcquired}`,
+            liveLink: `${project.liveLink}`,
             images: `${project.images}`
         })
     }
@@ -308,6 +309,7 @@ app.get('/getallprojects', async (req, res) => {
                 githubLink: project.githubLink,
                 description: project.description,
                 skillsAcquired: project.skillsAcquired,
+                liveLink: project.liveLink,
                 images: project.images
             };
         });

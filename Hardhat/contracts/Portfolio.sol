@@ -7,8 +7,8 @@ contract Portfolio {
     struct Education {
         uint index;
         string collegeName;
-        uint startingYear;
-        uint endYear;
+        string startingYear;
+        string endYear;
         string degree;
         string[] skillsAcquired;
         string description;
@@ -30,6 +30,7 @@ contract Portfolio {
         string githubLink;
         string description;
         string skillsAcquired;
+        string liveLink;
         string[] images;
     }
 
@@ -70,8 +71,8 @@ contract Portfolio {
 
     function addEduction(
         string memory collegeName,
-        uint startingYear,
-        uint endYear,
+        string memory startingYear,
+        string memory endYear,
         string memory degree,
         string[] memory skillsAcquired,
         string memory description
@@ -87,8 +88,8 @@ contract Portfolio {
     function editEducation(
         uint _i,
         string memory collegeName,
-        uint startingYear,
-        uint endYear,
+        string memory startingYear,
+        string memory endYear,
         string memory degree,
         string[] memory skillsAcquired,
         string memory description
@@ -102,9 +103,10 @@ contract Portfolio {
         string memory githubLink,
         string memory description,
         string memory skillsAcquired,
+        string memory linkLink,
         string[] memory images
     ) _onlyManager external {
-        projects.push(Project(noOfProjects,title,githubLink,description,skillsAcquired, images));
+        projects.push(Project(noOfProjects,title,githubLink,description,skillsAcquired, linkLink, images));
         noOfProjects++;
     }
 
@@ -118,9 +120,10 @@ contract Portfolio {
         string memory githubLink,
         string memory description,
         string memory skillsAcquired,
+        string memory liveLink,
         string[] memory images
     ) _onlyManager external {
-        Project memory project = Project(_i, title, githubLink, description, skillsAcquired, images);
+        Project memory project = Project(_i, title, githubLink, description, skillsAcquired, liveLink, images);
         projects[_i] = project;
     }
 
