@@ -1,6 +1,6 @@
 {
-      "contractAddress" : "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
-      "ownerAddress" : "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-      "networkDeployedTo" : "localhost"
+      "contractAddress" : "0xB1E709882E02EDad714BEc611d97d0F5A591AD73",
+      "ownerAddress" : "0x21579Ab43Ae0792AD8538690081388a44AEebA2C",
+      "networkDeployedTo" : "bscTestnet"
       }
     

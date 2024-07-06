@@ -3,14 +3,14 @@ const { default: Web3 } = require("web3");
 require('dotenv').config();
 
 
-const { abi } = require("./ABI/Portfolio.json");
+const abi = require("./ABI/Portfolio.json");
 
 const { contractAddress, ownerAddress, networkDeployedTo } = require('./ABI/contracts-config.json')
 
 console.log(process.env.ALCHEMY_RPC_MUMBAI);
 const ALCHEMY_RPC_MUMBAI = process.env.ALCHEMY_RPC_MUMBAI;
 
-const web3 = new Web3("http://localhost:8545/");
+const web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
 
 const portfolio = new web3.eth.Contract(abi, contractAddress);
 
@@ -59,7 +59,7 @@ async function changeLink( imageLink ) {
 
 async function changeProfile( profileLink ) {
     try {
-    await portfolio.methods.changeProfile(profileLink).send({ from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', gas: 5000000 });
+    await portfolio.methods.changeProfile(profileLink).send({ from: '0x21579Ab43Ae0792AD8538690081388a44AEebA2C', gas: 5000000 });
     fetchProfile();
     }
     catch(error) {

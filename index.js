@@ -74,12 +74,12 @@ app.patch('/changeprofile/:text', async (req, res) => {
     console.log(text)
 
     try {
-        console.log("Changing the image");
+        console.log("Changing the profile");
         await interaction.changeProfile(text);
 
         res.status(204).send();
         
-        console.log("Image changed");
+        console.log("Profile changed");
     }
     catch(error) {
         console.log("Error in changing the image");
